@@ -1,13 +1,13 @@
-package com.example.SprimgMVC;
+package com.example.SpringMVC;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SprimgMvcApplication {
+public class SpringMvcApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SprimgMvcApplication.class, args);
+		SpringApplication.run(SpringMvcApplication.class, args);
 	}
 
 }
