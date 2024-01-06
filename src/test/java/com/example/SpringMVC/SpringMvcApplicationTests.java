@@ -1,10 +1,10 @@
-package com.example.SprimgMVC;
+package com.example.SpringMVC;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SprimgMvcApplicationTests {
+class SpringMvcApplicationTests {
 
 	@Test
 	void contextLoads() {

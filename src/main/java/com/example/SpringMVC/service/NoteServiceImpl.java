@@ -1,10 +1,10 @@
-package com.example.SprimgMVC.service;
+package com.example.SpringMVC.service;
 
-import com.example.SprimgMVC.data.repositoriy.NoteRepositoriy;
-import com.example.SprimgMVC.service.components.NoteMapper;
-import com.example.SprimgMVC.service.dto.NoteDto;
-import com.example.SprimgMVC.service.exception.NoteNotFoundException;
-import com.example.SprimgMVC.data.entity.Note;
+import com.example.SpringMVC.data.repositoriy.NoteRepository;
+import com.example.SpringMVC.service.components.NoteMapper;
+import com.example.SpringMVC.service.dto.NoteDto;
+import com.example.SpringMVC.service.exception.NoteNotFoundException;
+import com.example.SpringMVC.data.entity.Note;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +12,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.UUID;
 
 @Slf4j
 @Service
 public class NoteServiceImpl implements NoteService{
- @Autowired
- private NoteRepositoriy noteRepository;
+    @Autowired private NoteRepository noteRepository;
     @Autowired private NoteMapper noteMapper;
 
     @Override
@@ -34,11 +32,12 @@ public class NoteServiceImpl implements NoteService{
             throw new NoteNotFoundException();
         }
         findById(noteDto.getId());
+
         noteRepository.save(noteMapper.toNote(noteDto));
     }
 
     @Override
-    public NoteDto findById(UUID id) throws NoteNotFoundException {
+    public NoteDto findById(Long id) throws NoteNotFoundException {
         Optional<Note> optionalNote = noteRepository.findById(id);
         if (optionalNote.isPresent()) {
             return noteMapper.toNoteDto(optionalNote.get());
@@ -53,7 +52,7 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public void deleteById(UUID id) throws NoteNotFoundException {
+    public void deleteById(Long id) throws NoteNotFoundException {
         findById(id);
         noteRepository.deleteById(id);
     }

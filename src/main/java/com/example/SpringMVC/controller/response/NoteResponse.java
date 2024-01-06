@@ -1,4 +1,4 @@
-package com.example.SprimgMVC.controller.response;
+package com.example.SpringMVC.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NoteResponse {
-    private UUID id;
+    private Long id;
     private String title;
     private String content;
 }

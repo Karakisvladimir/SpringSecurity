@@ -1,10 +1,8 @@
-package com.example.SprimgMVC.service.dto;
+package com.example.SpringMVC.service.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -12,7 +10,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NoteDto {
-    private UUID id;
+    private Long id;
 
     @Size(min = 2, max = 250)
     private String title;
